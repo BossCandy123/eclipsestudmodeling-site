@@ -1,0 +1,16 @@
+{
+  "name": "Evidence Rewards",
+  "short_name": "Evidence Rewards",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f9fd",
+  "theme_color": "#0d2035",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -21,6 +21,9 @@ const elements = {
   heroProof: document.querySelector("[data-hero-proof]"),
   selectedStatus: document.querySelector("[data-selected-status]"),
   selectedFacts: document.querySelector("[data-selected-facts]"),
+  selectedFlags: document.querySelector("[data-selected-flags]"),
+  readiness: document.querySelector("[data-readiness]"),
+  healthNote: document.querySelector("[data-health-note]"),
   selectedTitles: document.querySelectorAll("[data-selected-title]"),
   selectedMessages: document.querySelectorAll("[data-selected-message]")
 };
@@ -33,6 +36,7 @@ function render() {
   renderTimeline(selected);
   renderEvidence(selected);
   renderDispute(selected);
+  renderReadiness();
   renderAnalytics();
   renderSelectedSummary(selected);
 }
@@ -205,6 +209,15 @@ function renderSelectedSummary(selected) {
       <em>${item.note}</em>
     </article>
   `).join("");
+
+  const latestLedger = selected.ledgerImpact.at(-1);
+  const providerSignals = selected.providerEvents.length;
+  const openDisputes = selected.disputes.length;
+  elements.selectedFlags.innerHTML = [
+    `${providerSignals} provider signal${providerSignals === 1 ? "" : "s"}`,
+    latestLedger ? `${latestLedger.bucket} ledger movement` : "No withdrawable movement",
+    openDisputes > 0 ? `${openDisputes} dispute open` : "No dispute open"
+  ].map((item) => `<span class="preview-flag">${item}</span>`).join("");
 }
 
 function renderDispute(selected) {
@@ -230,6 +243,49 @@ function renderDispute(selected) {
       <textarea placeholder="Explain what happened">${latestDispute?.userEvidence.notes || ""}</textarea>
     </label>
   `;
+}
+
+function renderReadiness() {
+  const balances = getBalances(state, userId);
+  const providerSignals = state.attempts.filter((attempt) => attempt.providerEvents.length > 0).length;
+  const riskQueue = state.attempts.filter((attempt) => attempt.deviceRisk.riskScore >= 80).length;
+  const openIncidents = state.incidents.length;
+  const disputes = state.disputes.length;
+
+  const cards = [
+    {
+      label: "Provider confirmations",
+      value: `${providerSignals}/${state.attempts.length}`,
+      note: "Attempts with at least one trusted provider event in the local trail."
+    },
+    {
+      label: "Manual review queue",
+      value: `${disputes}`,
+      note: "Attempts already escalated into dispute handling."
+    },
+    {
+      label: "Risk-gated attempts",
+      value: `${riskQueue}`,
+      note: "Attempts that should hold payout until the fraud signal is resolved."
+    },
+    {
+      label: "Withdrawable balance",
+      value: balances.available.toLocaleString(),
+      note: "Available points stay separate from pending provider confirmation."
+    }
+  ];
+
+  elements.readiness.innerHTML = cards.map((card) => `
+    <article class="readiness-card">
+      <span>${card.label}</span>
+      <strong>${card.value}</strong>
+      <em>${card.note}</em>
+    </article>
+  `).join("");
+
+  elements.healthNote.textContent = openIncidents > 0
+    ? `Payout release should currently pause because ${openIncidents} site incident${openIncidents === 1 ? " is" : "s are"} still open.`
+    : `Current hold posture is driven by ${disputes} dispute${disputes === 1 ? "" : "s"} and ${riskQueue} elevated-risk attempt${riskQueue === 1 ? "" : "s"}.`;
 }
 
 function renderAnalytics() {

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Evidence Rewards social preview">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d2035"/>
+      <stop offset="100%" stop-color="#18365b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#1ea4a1"/>
+      <stop offset="100%" stop-color="#2157d8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#f4f9fd"/>
+  <circle cx="1025" cy="95" r="160" fill="#d7f2f1"/>
+  <circle cx="1080" cy="470" r="180" fill="#e0ebff"/>
+  <rect x="70" y="70" width="1060" height="490" rx="34" fill="url(#bg)"/>
+  <rect x="110" y="110" width="460" height="410" rx="28" fill="rgba(255,255,255,0.06)"/>
+  <rect x="610" y="110" width="480" height="410" rx="28" fill="#ffffff"/>
+  <rect x="660" y="182" width="180" height="18" rx="9" fill="#dae6f2"/>
+  <rect x="660" y="220" width="260" height="54" rx="18" fill="#0f2034"/>
+  <rect x="660" y="294" width="380" height="108" rx="20" fill="#eff5fb"/>
+  <rect x="660" y="422" width="155" height="44" rx="22" fill="url(#accent)"/>
+  <rect x="834" y="422" width="170" height="44" rx="22" fill="#eff5fb"/>
+  <rect x="154" y="154" width="50" height="50" rx="16" fill="url(#accent)"/>
+  <text x="232" y="197" fill="#ffffff" font-family="Georgia, 'Palatino Linotype', serif" font-size="34" font-weight="700">Evidence Rewards</text>
+  <text x="154" y="275" fill="#ffffff" font-family="Georgia, 'Palatino Linotype', serif" font-size="56" font-weight="700">
+    Rewards users can trust
+  </text>
+  <text x="154" y="334" fill="#ffffff" font-family="Georgia, 'Palatino Linotype', serif" font-size="56" font-weight="700">
+    because every credit has
+  </text>
+  <text x="154" y="393" fill="#ffffff" font-family="Georgia, 'Palatino Linotype', serif" font-size="56" font-weight="700">
+    evidence behind it.
+  </text>
+  <text x="154" y="455" fill="rgba(255,255,255,0.74)" font-family="'Segoe UI', Arial, sans-serif" font-size="24">
+    Track attempts, keep pending separate from withdrawable value,
+  </text>
+  <text x="154" y="490" fill="rgba(255,255,255,0.74)" font-family="'Segoe UI', Arial, sans-serif" font-size="24">
+    and resolve disputes with proof instead of guesswork.
+  </text>
+</svg>

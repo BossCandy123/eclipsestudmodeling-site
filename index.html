@@ -8,6 +8,25 @@
       name="description"
       content="Evidence Rewards is an evidence-first GPT rewards platform with tracked attempts, trusted crediting, operator review, and honest payout controls."
     >
+    <meta name="theme-color" content="#0d2035">
+    <meta property="og:title" content="Evidence Rewards">
+    <meta
+      property="og:description"
+      content="Evidence-first GPT rewards with tracked attempts, provider-verified crediting, dispute evidence, and payout controls."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.eclipsestudmodeling.com/">
+    <meta property="og:image" content="https://www.eclipsestudmodeling.com/social-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Evidence Rewards">
+    <meta
+      name="twitter:description"
+      content="Track every attempt, keep pending separate from withdrawable value, and resolve disputes with evidence."
+    >
+    <meta name="twitter:image" content="https://www.eclipsestudmodeling.com/social-card.svg">
+    <link rel="canonical" href="https://www.eclipsestudmodeling.com/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="site.webmanifest">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -21,10 +40,12 @@
           </span>
         </a>
         <nav class="site-nav" aria-label="Primary">
+          <a href="#architecture">Architecture</a>
           <a href="#balances">Balances</a>
           <a href="#workflow">Workflow</a>
           <a href="#command-center">Command center</a>
           <a href="#analytics">Analytics</a>
+          <a href="#faq">FAQ</a>
         </nav>
         <a class="header-cta" href="#command-center">Open live product</a>
       </header>
@@ -52,7 +73,43 @@
             <h2 data-selected-title></h2>
             <p data-selected-message></p>
             <div class="preview-grid" data-selected-facts></div>
+            <div class="preview-flags" data-selected-flags></div>
           </aside>
+        </section>
+
+        <section class="signal-section" id="architecture">
+          <div class="section-heading">
+            <h2>Trust has to survive support tickets, reversals, and payout pressure.</h2>
+            <p>
+              The site should not guess who failed. It should preserve enough evidence to separate
+              user behavior, provider behavior, and local tracking defects before money moves.
+            </p>
+          </div>
+          <div class="trust-grid">
+            <article class="trust-card trust-card-lead">
+              <span>Pre-credit evidence</span>
+              <h3>Every outbound click becomes a first-class attempt record before the user leaves the site.</h3>
+              <p>
+                Store the user, provider, offer, click ID, session ID, outbound URL, IP snapshot,
+                device fingerprint, and risk markers at redirect time so support never starts from zero.
+              </p>
+            </article>
+            <article class="trust-card">
+              <span>Provider validation</span>
+              <h3>Unconfirmed value stays pending.</h3>
+              <p>Postbacks must pass signature validation, idempotency checks, amount matching, and duplicate prevention before balances change.</p>
+            </article>
+            <article class="trust-card">
+              <span>Fault diagnosis</span>
+              <h3>Neutral status labels reduce bad blame.</h3>
+              <p>Users should see awaiting provider, review needed, provider rejected, or site tracking issue instead of generic missing points language.</p>
+            </article>
+            <article class="trust-card">
+              <span>Payout defense</span>
+              <h3>Withdrawal gates protect trust later.</h3>
+              <p>Reversal windows, disputes, duplicate-account risk, and provider incidents should pause payout release before loss becomes public.</p>
+            </article>
+          </div>
         </section>
 
         <section class="balance-section" id="balances">
@@ -140,6 +197,40 @@
           </div>
         </section>
 
+        <section class="readiness-section" id="readiness">
+          <div class="section-heading">
+            <h2>Operational readiness should be visible before the first payout request.</h2>
+            <p>
+              Launch quality here means more than pretty UI. The platform needs payout holds,
+              incident routing, and transparent user messaging before scale.
+            </p>
+          </div>
+          <div class="readiness-shell">
+            <article class="readiness-panel">
+              <div class="panel-header">
+                <span class="panel-label">Control loop</span>
+                <h3>Current release posture</h3>
+              </div>
+              <div class="readiness-grid" data-readiness></div>
+              <p class="readiness-note" data-health-note></p>
+            </article>
+            <article class="checklist-panel">
+              <div class="panel-header">
+                <span class="panel-label">Launch checklist</span>
+                <h3>Non-negotiable release rules</h3>
+              </div>
+              <ul class="checklist-list">
+                <li>Attempt records exist before redirect, not after provider callbacks.</li>
+                <li>Provider postbacks are validated, idempotent, and auditable.</li>
+                <li>Users see pending, rejected, and review states separately.</li>
+                <li>Manual credits require reviewer ID, evidence, and ledger history.</li>
+                <li>Reversals preserve the original credit event instead of hiding it.</li>
+                <li>Payout approval can stop on disputes, risk, or reversal windows.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
         <section class="analytics-section" id="analytics">
           <div class="section-heading">
             <h2>Provider visibility before growth turns expensive.</h2>
@@ -176,6 +267,34 @@
           </div>
         </section>
 
+        <section class="faq-section" id="faq">
+          <div class="section-heading">
+            <h2>Users need clear answers before they open a ticket.</h2>
+            <p>
+              The site should explain what is verified, what is still waiting on a provider, and
+              when support actually needs proof from the user.
+            </p>
+          </div>
+          <div class="faq-grid">
+            <details open>
+              <summary>Why are points pending instead of available?</summary>
+              <p>Pending means the platform has a tracked attempt or partial provider signal, but not enough trusted confirmation to make points withdrawable yet.</p>
+            </details>
+            <details>
+              <summary>When should a user open a dispute?</summary>
+              <p>Only when the provider delay is abnormal, the provider rejected the completion, duplicate risk blocked approval, or the site detected its own tracking issue.</p>
+            </details>
+            <details>
+              <summary>What proof should support ask for?</summary>
+              <p>Only evidence that can change the decision: completion time, screenshot, email receipt, or app or game user ID depending on the offer type.</p>
+            </details>
+            <details>
+              <summary>What happens if a provider reverses credit later?</summary>
+              <p>The reversal should subtract from the correct balance bucket, preserve the original credit event, and show the user an explicit reversal state.</p>
+            </details>
+          </div>
+        </section>
+
         <section class="closing-section">
           <div>
             <h2>Professional product surface. Defensible reward logic.</h2>
@@ -187,6 +306,22 @@
           <a class="primary-cta" href="#top">Back to top</a>
         </section>
       </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <span class="brand-mark">E</span>
+          <div>
+            <strong>Evidence Rewards</strong>
+            <p>Evidence-first GPT rewards product blueprint and interactive demo.</p>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#architecture">Architecture</a>
+          <a href="#command-center">Command center</a>
+          <a href="#analytics">Analytics</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </footer>
     </div>
 
     <script type="module" src="src/app.js"></script>
