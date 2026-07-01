@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Evidence Rewards</title>
+    <meta
+      name="description"
+      content="Evidence Rewards is an evidence-first GPT rewards platform with tracked attempts, trusted crediting, operator review, and honest payout controls."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Evidence Rewards home">
+          <span class="brand-mark">E</span>
+          <span class="brand-text">
+            <strong>Evidence Rewards</strong>
+            <small>Trusted GPT crediting</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#balances">Balances</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#command-center">Command center</a>
+          <a href="#analytics">Analytics</a>
+        </nav>
+        <a class="header-cta" href="#command-center">Open live product</a>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <h1>Rewards users can trust because every credit has evidence behind it.</h1>
+            <p>
+              Track every offer attempt at click time, separate pending from withdrawable value,
+              and give operators the proof they need to resolve disputes without guessing.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-cta" href="#command-center">Review live dashboard</a>
+              <a class="secondary-cta" href="#workflow">See the crediting model</a>
+            </div>
+            <div class="hero-proof" data-hero-proof></div>
+          </div>
+
+          <aside class="hero-preview" aria-label="Selected attempt overview">
+            <div class="preview-head">
+              <span>Live attempt</span>
+              <strong data-selected-status></strong>
+            </div>
+            <h2 data-selected-title></h2>
+            <p data-selected-message></p>
+            <div class="preview-grid" data-selected-facts></div>
+          </aside>
+        </section>
+
+        <section class="balance-section" id="balances">
+          <div class="section-heading">
+            <h2>Balance states that mean exactly one thing each.</h2>
+            <p>
+              Available and pending are not the same. Rejected and under review should not disappear
+              into a generic wallet total.
+            </p>
+          </div>
+          <div class="metrics" data-balances aria-label="Balance totals"></div>
+        </section>
+
+        <section class="workflow-section" id="workflow">
+          <div class="section-heading">
+            <h2>The product tells the truth at every handoff.</h2>
+            <p>
+              The workflow is designed to distinguish user behavior, provider behavior, and platform
+              failures before money moves.
+            </p>
+          </div>
+          <div class="workflow-grid">
+            <article class="workflow-card">
+              <strong>1. Track the click</strong>
+              <p>Create an offer attempt before redirect with click ID, session ID, provider, device, and risk context.</p>
+            </article>
+            <article class="workflow-card">
+              <strong>2. Wait for trusted confirmation</strong>
+              <p>Provider events can move value to pending, but nothing becomes withdrawable until the platform can defend it.</p>
+            </article>
+            <article class="workflow-card">
+              <strong>3. Route disputes with proof</strong>
+              <p>Only ask for evidence when it can change the decision, and preserve every review action in the audit trail.</p>
+            </article>
+            <article class="workflow-card">
+              <strong>4. Gate payout approval</strong>
+              <p>Unresolved disputes, reversal windows, and duplicate-account risk stop payout release before trust is lost.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="centerpiece" id="command-center">
+          <div class="section-heading">
+            <h2>Command center for the user story and the operator story.</h2>
+            <p>
+              Users see the timeline they need. Operators see the evidence they need. Both are driven
+              by the same attempt and ledger model.
+            </p>
+          </div>
+
+          <div class="workspace-shell">
+            <article class="workspace-rail">
+              <div class="panel-header">
+                <span class="panel-label">Tracked attempts</span>
+                <h3>User offer history</h3>
+              </div>
+              <div class="attempt-list" data-attempts></div>
+            </article>
+
+            <article class="workspace-main">
+              <div class="panel-header">
+                <span class="panel-label">Selected attempt</span>
+                <div class="panel-title-row">
+                  <h3 data-selected-title></h3>
+                  <span class="live-chip">Live audit</span>
+                </div>
+              </div>
+              <p class="selected-message" data-selected-message></p>
+              <ol class="timeline" data-timeline></ol>
+            </article>
+
+            <aside class="workspace-evidence" aria-label="Admin evidence panel">
+              <div class="panel-header">
+                <span class="panel-label">Admin evidence</span>
+                <h3>Fault diagnosis</h3>
+              </div>
+              <section data-evidence></section>
+
+              <div class="panel-header dispute-head">
+                <span class="panel-label">User dispute</span>
+                <h3 id="disputes">Dispute intake</h3>
+              </div>
+              <form class="dispute-form" data-dispute></form>
+            </aside>
+          </div>
+        </section>
+
+        <section class="analytics-section" id="analytics">
+          <div class="section-heading">
+            <h2>Provider visibility before growth turns expensive.</h2>
+            <p>
+              The platform needs credit rate and reversal truth by provider, not vague topline reward volume.
+            </p>
+          </div>
+
+          <div class="analytics-shell">
+            <div class="analytics-story">
+              <div class="story-card">
+                <strong>Provider health</strong>
+                <p data-provider-summary></p>
+              </div>
+              <div class="story-card">
+                <strong>Why this matters</strong>
+                <p>Operator trust depends on distinguishing partner delay from user failure and site-side defects before support volume compounds.</p>
+              </div>
+            </div>
+
+            <table class="analytics-table">
+              <thead>
+                <tr>
+                  <th>Provider</th>
+                  <th>Attempts</th>
+                  <th>Credit rate</th>
+                  <th>Rejected</th>
+                  <th>Reversed</th>
+                  <th>Disputes</th>
+                </tr>
+              </thead>
+              <tbody data-analytics></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="closing-section">
+          <div>
+            <h2>Professional product surface. Defensible reward logic.</h2>
+            <p>
+              Evidence Rewards is designed to look credible to users and stay defensible for operators when payouts,
+              disputes, and provider failures get messy.
+            </p>
+          </div>
+          <a class="primary-cta" href="#top">Back to top</a>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

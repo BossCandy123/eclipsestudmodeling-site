@@ -1,0 +1,11 @@
+{
+  "name": "gpt-rewards-crediting",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/crediting-engine.js && node --check src/postback-security.js && node --check src/app.js",
+    "dev": "node server.js"
+  }
+}
